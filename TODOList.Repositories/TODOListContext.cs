@@ -16,6 +16,10 @@ namespace TODOList.Repositories
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer(
+                "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TODO;Integrated Security=True;", 
+                options => options.MigrationsHistoryTable("MigrationHistory", "TDL"));
+
             base.OnConfiguring(optionsBuilder);
         }
 

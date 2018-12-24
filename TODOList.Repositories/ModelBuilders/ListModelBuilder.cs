@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TODOList.Entities;
 
 namespace TODOList.Repositories.ModelBuilders
@@ -12,7 +9,6 @@ namespace TODOList.Repositories.ModelBuilders
         public void Configure(EntityTypeBuilder<List> builder)
         {
             builder.ToTable("Lists", "TDL")
-                .ForSqlServerIsMemoryOptimized()
                 .HasKey(property => property.Id)
                 .ForSqlServerIsClustered();
 
@@ -20,7 +16,6 @@ namespace TODOList.Repositories.ModelBuilders
                 .UseSqlServerIdentityColumn();
 
             builder.HasMany(property => property.Elements).WithOne()
-                .HasPrincipalKey(property => property.Id)
                 .HasForeignKey(property => property.ListId);
 
             builder.Property(property => property.Description)

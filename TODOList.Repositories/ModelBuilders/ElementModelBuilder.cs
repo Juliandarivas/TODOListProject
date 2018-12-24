@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TODOList.Entities;
 
 namespace TODOList.Repositories.ModelBuilders
@@ -12,7 +9,6 @@ namespace TODOList.Repositories.ModelBuilders
         public void Configure(EntityTypeBuilder<Element> builder)
         {
             builder.ToTable("Elements", "TDL")
-                .ForSqlServerIsMemoryOptimized()
                 .HasKey(property => property.Id)
                 .ForSqlServerIsClustered();
 

@@ -1,5 +1,3 @@
-using System;
-
 namespace TODOList.MVC.Models
 {
     public class ErrorViewModel

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TODOList.Enumerables
+﻿namespace TODOList.Enumerables
 {
     public enum Priority
     {
